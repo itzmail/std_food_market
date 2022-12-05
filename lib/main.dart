@@ -10,13 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: GeneralPage(
-        onBackButtonPressed: () {},
-        title: "Navbar",
-        child: const Text('Body'),
-      ),
+      home: SignInPage(),
     );
   }
 }

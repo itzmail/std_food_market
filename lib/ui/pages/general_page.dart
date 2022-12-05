@@ -25,7 +25,7 @@ class GeneralPage extends StatelessWidget {
           ),
           SafeArea(
               child: Container(
-            color: backColor ?? 'FAFAFC'.toColor(),
+            color: backColor ?? Colors.white,
           )),
           SafeArea(
             child: ListView(
@@ -33,9 +33,7 @@ class GeneralPage extends StatelessWidget {
                 Column(
                   children: [
                     Container(
-                      margin: const EdgeInsets.only(bottom: defaultMargin),
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: defaultMargin),
+                      padding:  const EdgeInsets.symmetric(horizontal: defaultMargin),
                       width: double.infinity,
                       height: 100,
                       color: Colors.white,
@@ -71,6 +69,7 @@ class GeneralPage extends StatelessWidget {
                         )
                       ]),
                     ),
+                    Container(height: defaultMargin, width: double.infinity, color: 'FAFAFC'.toColor()),
                     child ?? const SizedBox()
                   ],
                 )
