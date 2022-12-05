@@ -1,51 +1,32 @@
 part of 'pages.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+class AddressPage extends StatefulWidget {
+  const AddressPage({Key? key}) : super(key: key);
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<AddressPage> createState() => _AddressPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _AddressPageState extends State<AddressPage> {
+  String? dropDownValue = 'hello, world';
   @override
   Widget build(BuildContext context) {
-    TextEditingController emailController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
-    TextEditingController nameController = TextEditingController();
+    TextEditingController phoneController = TextEditingController();
+    TextEditingController addressController = TextEditingController();
+    TextEditingController noHouseController = TextEditingController();
 
     return GeneralPage(
-      title: 'Sign Up',
-      subtitle: 'Register and Eat',
-      onBackButtonPressed: true,
+      title: 'Address',
+      subtitle: "Make sure it's valid",
       child: Column(
         children: [
-          /* PHOTO */
-          Container(
-            width: 110,
-            height: 110,
-            margin: const EdgeInsets.only(top: 26),
-            padding: const EdgeInsets.all(10),
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/photo_border.png'))),
-            child: Container(
-              decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                      image: NetworkImage(
-                          'https://pbs.twimg.com/profile_images/581481287808131074/8OADPA0Z_400x400.jpg'),
-                      fit: BoxFit.cover)),
-            ),
-          ),
-
-          /* NAMA */
+          /* PHONE */
           Container(
             width: double.infinity,
             margin:
                 const EdgeInsets.fromLTRB(defaultMargin, 26, defaultMargin, 6),
             child: Text(
-              "Name",
+              "Phone No.",
               style: blackFontStyle2,
             ),
           ),
@@ -58,21 +39,21 @@ class _SignUpPageState extends State<SignUpPage> {
               border: Border.all(color: Colors.black),
             ),
             child: TextField(
-              controller: nameController,
+              controller: phoneController,
               decoration: InputDecoration(
                   border: InputBorder.none,
                   hintStyle: greyFontStyle,
-                  hintText: 'Type your full name'),
+                  hintText: 'Type your phone number'),
             ),
           ),
 
-          /* EMAIL */
+          /* ADDRESS */
           Container(
             width: double.infinity,
             margin:
                 const EdgeInsets.fromLTRB(defaultMargin, 26, defaultMargin, 6),
             child: Text(
-              "Email Address",
+              "Address",
               style: blackFontStyle2,
             ),
           ),
@@ -85,21 +66,21 @@ class _SignUpPageState extends State<SignUpPage> {
               border: Border.all(color: Colors.black),
             ),
             child: TextField(
-              controller: emailController,
+              controller: addressController,
               decoration: InputDecoration(
                   border: InputBorder.none,
                   hintStyle: greyFontStyle,
-                  hintText: 'Type your email address'),
+                  hintText: 'Type your address'),
             ),
           ),
 
-          /* PASSWORD */
+          /* NO hoUSE */
           Container(
             width: double.infinity,
             margin:
                 const EdgeInsets.fromLTRB(defaultMargin, 26, defaultMargin, 6),
             child: Text(
-              "Password",
+              "House No.",
               style: blackFontStyle2,
             ),
           ),
@@ -112,15 +93,78 @@ class _SignUpPageState extends State<SignUpPage> {
               border: Border.all(color: Colors.black),
             ),
             child: TextField(
-              controller: passwordController,
+              controller: noHouseController,
               decoration: InputDecoration(
                   border: InputBorder.none,
                   hintStyle: greyFontStyle,
-                  hintText: 'Type your password'),
+                  hintText: 'Type your house number'),
             ),
           ),
+
+          /* CITY */
+          Container(
+            width: double.infinity,
+            margin:
+                const EdgeInsets.fromLTRB(defaultMargin, 26, defaultMargin, 6),
+            child: Text(
+              "City.",
+              style: blackFontStyle2,
+            ),
+          ),
+          Container(
+              width: double.infinity,
+              margin: const EdgeInsets.symmetric(horizontal: defaultMargin),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.0),
+                border: Border.all(color: Colors.black),
+              ),
+              // child: DropdownButton(
+              //   value:
+              //       dropDownValue, // this place should not have a controller but a variable
+              //   onChanged: (_value) {
+              //     setState(() {
+              //       dropDownValue = _value;
+              //     });
+              //   },
+              //   items: ["hello, world", "how are you", "goodbye"]
+              //       .map<DropdownMenuItem<String>>((String _value) =>
+              //           DropdownMenuItem<String>(
+              //               value:
+              //                   _value, // add this property an pass the _value to it
+              //               child: Text(
+              //                 _value,
+              //               )))
+              //       .toList(),
+              child: DropdownButton(
+                items: [
+                  DropdownMenuItem(
+                    child: Text(
+                      'Bandung',
+                      style: blackFontStyle3,
+                    ),
+                    value: 'Bandung',
+                  ),
+                  DropdownMenuItem(
+                    child: Text(
+                      'Jakarta',
+                      style: blackFontStyle3,
+                    ),
+                    value: 'Jakarta',
+                  ),
+                  DropdownMenuItem(
+                    child: Text(
+                      'Surabaya',
+                      style: blackFontStyle3,
+                    ),
+                    value: 'Surabaya',
+                  ),
+                ],
+                onChanged: null,
+              )),
 
           /* BUTTON */
+
           Container(
             width: double.infinity,
             margin: const EdgeInsets.only(top: 24),
@@ -128,11 +172,11 @@ class _SignUpPageState extends State<SignUpPage> {
             padding: const EdgeInsets.symmetric(horizontal: defaultMargin),
             child: ElevatedButton(
               onPressed: () {
-                Get.to(const AddressPage());
+                Get.to(SignUpPage());
               },
               // ignore: sort_child_properties_last
               child: Text(
-                'Continue',
+                'Sign Up Now',
                 style: GoogleFonts.poppins(
                     color: Colors.black, fontWeight: FontWeight.w500),
               ),
