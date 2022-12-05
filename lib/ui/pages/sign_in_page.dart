@@ -15,10 +15,11 @@ class _SignInPageState extends State<SignInPage> {
     bool isLoading = false;
 
     return GeneralPage(
-      title: 'Sign in',
+      title: 'Sign In',
       subtitle: 'Find your best ever meal',
       child: Column(
         children: [
+          /* EMAIL */
           Container(
             width: double.infinity,
             margin:
@@ -44,6 +45,8 @@ class _SignInPageState extends State<SignInPage> {
                   hintText: 'Type your email address'),
             ),
           ),
+
+          /* PASSWORD */
           Container(
             width: double.infinity,
             margin:
@@ -62,13 +65,16 @@ class _SignInPageState extends State<SignInPage> {
               border: Border.all(color: Colors.black),
             ),
             child: TextField(
-              controller: emailController,
+              controller: passwordController,
               decoration: InputDecoration(
                   border: InputBorder.none,
                   hintStyle: greyFontStyle,
                   hintText: 'Type your password'),
             ),
           ),
+
+          /* BUTTON */
+
           Container(
             width: double.infinity,
             margin: const EdgeInsets.only(top: 24),
