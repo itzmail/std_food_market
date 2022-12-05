@@ -3,7 +3,7 @@ part of 'pages.dart';
 class GeneralPage extends StatelessWidget {
   final String title;
   final String subtitle;
-  final Function? onBackButtonPressed;
+  final bool onBackButtonPressed;
   final Widget? child;
   final Color? backColor;
 
@@ -11,7 +11,7 @@ class GeneralPage extends StatelessWidget {
       {super.key,
       this.title = "TITLE",
       this.subtitle = "SUBTITLE",
-      this.onBackButtonPressed,
+      this.onBackButtonPressed = false,
       this.backColor,
       this.child});
 
@@ -33,20 +33,26 @@ class GeneralPage extends StatelessWidget {
                 Column(
                   children: [
                     Container(
-                      padding:  const EdgeInsets.symmetric(horizontal: defaultMargin),
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: defaultMargin),
                       width: double.infinity,
                       height: 100,
                       color: Colors.white,
                       child: Row(children: [
-                        onBackButtonPressed != null
-                            ? Container(
-                                width: 24,
-                                height: 24,
-                                margin: const EdgeInsets.only(right: 26),
-                                decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                      image:
-                                          AssetImage('assets/back_arrow.png')),
+                        onBackButtonPressed != false
+                            ? GestureDetector(
+                                onTap: () {
+                                  Get.back();
+                                },
+                                child: Container(
+                                  width: 24,
+                                  height: 24,
+                                  margin: const EdgeInsets.only(right: 26),
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/back_arrow.png')),
+                                  ),
                                 ),
                               )
                             : const SizedBox(),
@@ -69,7 +75,10 @@ class GeneralPage extends StatelessWidget {
                         )
                       ]),
                     ),
-                    Container(height: defaultMargin, width: double.infinity, color: 'FAFAFC'.toColor()),
+                    Container(
+                        height: defaultMargin,
+                        width: double.infinity,
+                        color: 'FAFAFC'.toColor()),
                     child ?? const SizedBox()
                   ],
                 )

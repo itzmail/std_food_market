@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_market/ui/pages/pages.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,9 +11,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SignInPage(),
-    );
+    return GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const SignInPage(),
+          '/sign-up': (context) => const SignUpPage()
+        });
   }
 }

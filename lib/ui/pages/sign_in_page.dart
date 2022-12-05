@@ -106,7 +106,9 @@ class _SignInPageState extends State<SignInPage> {
             child: isLoading
                 ? SpinKitFadingCircle(size: 45, color: mainColor)
                 : ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(SignUpPage());
+                    },
                     // ignore: sort_child_properties_last
                     child: Text(
                       'Create New Account',
