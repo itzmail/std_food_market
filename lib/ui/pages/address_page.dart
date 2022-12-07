@@ -8,7 +8,9 @@ class AddressPage extends StatefulWidget {
 }
 
 class _AddressPageState extends State<AddressPage> {
-  String? dropDownValue = 'hello, world';
+  String? dropDownValue;
+
+  
   @override
   Widget build(BuildContext context) {
     TextEditingController phoneController = TextEditingController();
@@ -119,48 +121,21 @@ class _AddressPageState extends State<AddressPage> {
                 borderRadius: BorderRadius.circular(8.0),
                 border: Border.all(color: Colors.black),
               ),
-              // child: DropdownButton(
-              //   value:
-              //       dropDownValue, // this place should not have a controller but a variable
-              //   onChanged: (_value) {
-              //     setState(() {
-              //       dropDownValue = _value;
-              //     });
-              //   },
-              //   items: ["hello, world", "how are you", "goodbye"]
-              //       .map<DropdownMenuItem<String>>((String _value) =>
-              //           DropdownMenuItem<String>(
-              //               value:
-              //                   _value, // add this property an pass the _value to it
-              //               child: Text(
-              //                 _value,
-              //               )))
-              //       .toList(),
               child: DropdownButton(
-                items: [
-                  DropdownMenuItem(
-                    child: Text(
-                      'Bandung',
-                      style: blackFontStyle3,
-                    ),
-                    value: 'Bandung',
-                  ),
-                  DropdownMenuItem(
-                    child: Text(
-                      'Jakarta',
-                      style: blackFontStyle3,
-                    ),
-                    value: 'Jakarta',
-                  ),
-                  DropdownMenuItem(
-                    child: Text(
-                      'Surabaya',
-                      style: blackFontStyle3,
-                    ),
-                    value: 'Surabaya',
-                  ),
-                ],
-                onChanged: null,
+                value: dropDownValue, // this place should not have a controller but a variable
+                onChanged: (value) {
+                  setState(() {
+                    dropDownValue = value;
+                  });
+                },
+                items: ["Magelang", "Surabaya", "Bandung", "Jakarta"]
+                    .map<DropdownMenuItem<String>>((String value) => DropdownMenuItem<String>(
+                        value: value, // add this property an pass the _value to it
+                        child: Text(value)))
+                    .toList(),
+                hint: const Text("Choose City"),
+                isExpanded: true,
+                underline: Container(color: Colors.transparent),
               )),
 
           /* BUTTON */
