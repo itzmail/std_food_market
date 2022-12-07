@@ -1,3 +1,7 @@
 {
-    "cmake.sourceDirectory": "${workspaceFolder}/windows/flutter"
+    "cmake.sourceDirectory": "${workspaceFolder}/windows/flutter",
+    "editor.formatOnSave": false,
+    "[dart]": {
+        "editor.formatOnSave": false
+    }
 }
