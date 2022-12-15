@@ -20,6 +20,7 @@ class _AddressPageState extends State<AddressPage> {
     return GeneralPage(
       title: 'Address',
       subtitle: "Make sure it's valid",
+      onBackButtonPressed: true,
       child: Column(
         children: [
           /* PHONE */
@@ -135,7 +136,7 @@ class _AddressPageState extends State<AddressPage> {
                     .toList(),
                 hint: const Text("Choose City"),
                 isExpanded: true,
-                underline: Container(color: Colors.transparent),
+                underline: const SizedBox(),
               )),
 
           /* BUTTON */
