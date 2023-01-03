@@ -47,7 +47,9 @@ class _FoodPageState extends State<FoodPage> {
                 ],
               ),
             ),
-            FoodCard()
+            FoodCard(
+              food: mockFood,
+            )
           ],
         )
       ],
