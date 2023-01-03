@@ -23,6 +23,7 @@ class _MainPageState extends State<MainPage> {
               child: PageView(
                 controller: pageController,
                 onPageChanged: (index) {
+                  print("Index $index");
                   setState(() {
                     selectedPage = index;
                   });
